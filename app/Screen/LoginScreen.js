@@ -1,23 +1,62 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Screen from "../Container/Screen";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
+import { useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import AppButton from "../Components/AppButton";
+import AppInput from "../Components/AppInput";
+import Form from "../Provider/FormProvider";
 
 export default function LoginScreen() {
+  const loginSchema = Yup.object().shape({
+    email: Yup.string().email().required(),
+    password: Yup.string().required(),
+  });
+
+  const defaultValues = useMemo(
+    () => ({
+      email: "",
+      password: "",
+    }),
+    []
+  );
+
+  const methods = useForm({
+    resolver: yupResolver(loginSchema),
+    defaultValues,
+  });
+
+  const { handleSubmit, control } = methods;
+
+  const onSubmit = (data) => console.log(data);
+
   return (
     <Screen>
-      <View style={styles.container}>
-        <Image
-          source={require("../assets/logo-red.png")}
-          resizeMode="center"
-          style={styles.loginImage}
-        />
-        <View style={styles.formProvider}>
-          <Text>1</Text>
-          <Text>1</Text>
-          <AppButton onPress={() => console.log("press")}>Login</AppButton>
+      <Form methods={methods}>
+        <View style={styles.container}>
+          <Image
+            source={require("../assets/logo-red.png")}
+            resizeMode="center"
+            style={styles.loginImage}
+          />
+          <View style={styles.formProvider}>
+            <AppInput
+              name={"email"}
+              placeholder={"Email"}
+              type={"email-address"}
+              icon={"email"}
+            />
+            <AppInput
+              name={"password"}
+              placeholder={"password"}
+              icon={"lock"}
+              secureTextEntry
+            />
+            <AppButton onPress={handleSubmit(onSubmit)}>Login</AppButton>
+          </View>
         </View>
-      </View>
+      </Form>
     </Screen>
   );
 }

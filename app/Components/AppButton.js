@@ -4,7 +4,7 @@ import { colors } from "../constants/color.enum";
 
 export default function AppButton({ onPress, children, ...other }) {
   return (
-    <TouchableOpacity  style={styles.button} onPress={onPress} {...other}>
+    <TouchableOpacity activeOpacity={0.5}  style={styles.button} onPress={onPress} {...other}>
       <Text style={styles.buttonText}>{children}</Text>
     </TouchableOpacity>
   );
@@ -12,9 +12,9 @@ export default function AppButton({ onPress, children, ...other }) {
 
 const styles = StyleSheet.create({
   button: {
-    padding: 10,
+    padding: 12,
     width: "100%",
-    borderRadius: 20,
+    borderRadius: 30,
     backgroundColor: colors.main,
   },
   buttonText: {

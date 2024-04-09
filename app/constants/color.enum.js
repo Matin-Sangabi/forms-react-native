@@ -4,4 +4,5 @@ export const colors = Object.freeze({
   main: "#f8575e",
   primary: "#fbf5f3",
   secondary: "",
+  gray: "#6d6666",
 });
