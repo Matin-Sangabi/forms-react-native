@@ -38,12 +38,13 @@ export default function RegisterScreen() {
       <Form methods={methods}>
         <View style={styles.container}>
           <View style={styles.formProvider}>
-            <AppInput name={"name"} placeholder={"Name"} icon={"email"} />
+            <AppInput name={"name"} placeholder={"Name"} icon={"person"} />
             <AppInput
               name={"email"}
               placeholder={"Email"}
               type={"email-address"}
-              icon={"person"}
+              icon={"email"}
+              inputMode="email"
             />
             <AppInput
               name={"password"}
