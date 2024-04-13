@@ -34,9 +34,10 @@ export default function AppInput({
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
+              blurOnSubmit={false}
               style={styles.input}
               placeholder={placeholder}
-              keyboardType={"default"}
+              keyboardType={type}
               secureTextEntry={secureTextEntry}
               {...other}
             />
