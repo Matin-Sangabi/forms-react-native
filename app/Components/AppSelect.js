@@ -4,25 +4,36 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { colors } from "../constants/color.enum";
 import SelectModal from "./SelectModal";
 import { useFormContext } from "react-hook-form";
-export default function AppSelect({ title, name }) {
+import { data } from "../utils/setting";
+import { ErrorMessage } from "@hookform/error-message";
+export default function AppSelect({ title, name, isRowSelect = false }) {
   const [openModal, setOpenModal] = useState(false);
 
   const {
+    control,
     setValue,
     formState: { errors },
     getValues,
+    clearErrors,
   } = useFormContext();
   // console.log(errors);
 
   const handleChange = (value, name) => {
-    console.log(value);
     setValue(name, value);
+    clearErrors(name);
   };
+
 
   return (
     <>
       <TouchableOpacity
-        style={styles.container}
+        style={[
+          styles.container,
+          {
+            borderWidth: errors[name] ? 1 : 0,
+            borderColor: !!errors[name] ? colors.main : "",
+          },
+        ]}
         onPress={() => setOpenModal(true)}
       >
         <Text style={styles.color}>
@@ -30,11 +41,20 @@ export default function AppSelect({ title, name }) {
         </Text>
         <MaterialIcons name="arrow-drop-down" size={24} color={colors.gray} />
       </TouchableOpacity>
+      <ErrorMessage
+        errors={errors}
+        name={name}
+        render={({ message }) => (
+          <Text style={styles.erroMessage}>{message}</Text>
+        )}
+      />
+
       <SelectModal
         open={openModal}
         handleClose={() => setOpenModal(false)}
         data={data}
         onChange={(e) => handleChange(e, name)}
+        isRowSelect={isRowSelect}
       />
     </>
   );
@@ -54,13 +74,10 @@ const styles = StyleSheet.create({
   },
   color: {
     color: colors.gray,
-    fontWeight: "700",
+    fontSize: 16,
+    fontWeight: "500",
+  },
+  erroMessage: {
+    color: colors.main,
   },
 });
-
-const data = [
-  { id: "1", title: "test 1" },
-  { id: "2", title: "test 2" },
-  { id: "3", title: "test 3" },
-  { id: "4", title: "test 4" },
-];

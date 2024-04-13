@@ -14,7 +14,7 @@ export default function PostScreen() {
   const postSchema = Yup.object().shape({
     title: Yup.string().required(),
     price: Yup.string().required(),
-    category: Yup.string(),
+    category: Yup.string().required(),
     desc: Yup.string(),
   });
 
@@ -25,9 +25,12 @@ export default function PostScreen() {
 
   const methods = useForm({ defaultValues, resolver: yupResolver(postSchema) });
 
-  const { handleSubmit } = methods;
+  const { handleSubmit, reset } = methods;
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
 
   return (
     <Screen>
@@ -41,7 +44,7 @@ export default function PostScreen() {
               type={"number-pad"}
             />
             {/* category here */}
-            <AppSelect name={"category"} title={"Category"}  />
+            <AppSelect isRowSelect name={"category"} title={"Category"} />
             <AppInput
               name={"desc"}
               multiline={true}
