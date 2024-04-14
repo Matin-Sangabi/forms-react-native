@@ -9,17 +9,19 @@ import { useForm } from "react-hook-form";
 import AppInput from "../Components/AppInput";
 import AppButton from "../Components/AppButton";
 import AppSelect from "../Components/AppSelect";
+import AppImage from "../Components/AppImage";
 
 export default function PostScreen() {
   const postSchema = Yup.object().shape({
     title: Yup.string().required(),
     price: Yup.string().required(),
     category: Yup.string().required(),
+    images: Yup.array().min(1).required(),
     desc: Yup.string(),
   });
 
   const defaultValues = useMemo(
-    () => ({ title: "", price: "", category: "", desc: "" }),
+    () => ({ title: "", price: "", category: "", desc: "", images: [] }),
     []
   );
 
@@ -37,6 +39,7 @@ export default function PostScreen() {
       <Form methods={methods}>
         <View style={styles.container}>
           <View style={styles.formProvider}>
+            <AppImage name={"images"} />
             <AppInput name={"title"} placeholder={"Title"} />
             <AppInput
               name={"price"}
@@ -45,7 +48,12 @@ export default function PostScreen() {
               width={200}
             />
             {/* category here */}
-            <AppSelect width={250} isRowSelect name={"category"} title={"Category"} />
+            <AppSelect
+              width={250}
+              isRowSelect
+              name={"category"}
+              title={"Category"}
+            />
             <AppInput
               name={"desc"}
               multiline={true}

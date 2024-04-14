@@ -10,7 +10,6 @@ export default function AppSelect({ title, name, width = "100%" , isRowSelect = 
   const [openModal, setOpenModal] = useState(false);
 
   const {
-    control,
     setValue,
     formState: { errors },
     getValues,
