@@ -6,12 +6,12 @@ export default function RowsSelect({ item , selectItem }) {
   return (
     <TouchableOpacity
       underlayColor={colors.gray}
-      style={{width : 100, height : 100 }}
+      style={{ width: 100, height: 100 }}
       onPress={() => selectItem(item.title)}
     >
       <View style={[styles.container, { backgroundColor: item.color }]}>
-        <MaterialIcons name={item.icon} size={34} color={colors.gray} />
-        <Text style={colors.dark}>{item.title}</Text>
+        <MaterialIcons name={item.icon} size={34} color={colors.dark} />
+        <Text style={{ color: colors.dark }}>{item.title}</Text>
       </View>
     </TouchableOpacity>
   );

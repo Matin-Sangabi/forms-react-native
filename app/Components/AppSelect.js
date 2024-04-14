@@ -6,7 +6,7 @@ import SelectModal from "./SelectModal";
 import { useFormContext } from "react-hook-form";
 import { data } from "../utils/setting";
 import { ErrorMessage } from "@hookform/error-message";
-export default function AppSelect({ title, name, isRowSelect = false }) {
+export default function AppSelect({ title, name, width = "100%" , isRowSelect = false }) {
   const [openModal, setOpenModal] = useState(false);
 
   const {
@@ -30,6 +30,7 @@ export default function AppSelect({ title, name, isRowSelect = false }) {
         style={[
           styles.container,
           {
+            width : width,
             borderWidth: errors[name] ? 1 : 0,
             borderColor: !!errors[name] ? colors.main : "",
           },

@@ -42,9 +42,10 @@ export default function PostScreen() {
               name={"price"}
               placeholder={"Price"}
               type={"number-pad"}
+              width={200}
             />
             {/* category here */}
-            <AppSelect isRowSelect name={"category"} title={"Category"} />
+            <AppSelect width={250} isRowSelect name={"category"} title={"Category"} />
             <AppInput
               name={"desc"}
               multiline={true}

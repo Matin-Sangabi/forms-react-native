@@ -84,9 +84,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    rowGap: 10,
+    rowGap: 14,
     columnGap: 10,
     width: "100%",
   },

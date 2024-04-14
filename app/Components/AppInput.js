@@ -10,6 +10,7 @@ export default function AppInput({
   type = "default",
   secureTextEntry = false,
   name,
+  width = "100%",
   ...other
 }) {
   const { control } = useFormContext();
@@ -22,7 +23,7 @@ export default function AppInput({
         field: { onChange, onBlur, value },
         fieldState: { error },
       }) => (
-        <View style={styles.contiainer}>
+        <View style={[styles.contiainer , {width : width}]}>
           <View
             style={[
               styles.inputContainer,
