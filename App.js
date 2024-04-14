@@ -3,6 +3,7 @@ import React from 'react'
 import PostScreen from './app/Screen/PostScreen'
 import DetailsScreen from './app/Screen/DetailsScreen'
 import {NavigationContainer} from "@react-navigation/native"
+import FeedScreen from './app/Screen/FeedScreen';
 // import LoginScreen from './app/Screen/LoginScreen'
 
 export default function App() {
@@ -10,7 +11,8 @@ export default function App() {
     // <LoginScreen />
     // <RegisterScreen />
     <NavigationContainer>
-      <DetailsScreen />
+      {/* <DetailsScreen /> */}
+      <FeedScreen />
     </NavigationContainer>
   );
 }

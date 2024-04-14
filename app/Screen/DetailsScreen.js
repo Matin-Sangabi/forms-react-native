@@ -4,14 +4,15 @@ import React, { useEffect, useState } from "react";
 import { feedData } from "../utils/setting";
 import AppText from "../Components/AppText";
 import Avatar from "../Components/Avatar/Avatar";
+import FeedDetails from "../Components/FeedDetails";
 
 export default function DetailsScreen() {
   const [data, setData] = useState(null);
-//   const route = useRoute();
-  const  id  =  2;
+  //   const route = useRoute();
+  const id = 2;
 
   function findData(id) {
-    console.log(id)
+    console.log(id);
     const findData = feedData.find((item) => +item.id === +id);
     setData(findData);
   }
@@ -24,14 +25,7 @@ export default function DetailsScreen() {
     return (
       <View style={styles.container}>
         <Image source={data?.image} style={styles.image} />
-        <View style={styles.imageDetails}>
-          <AppText fontWeight="700" color="dark" fontSize={18}>
-            {data?.title}
-          </AppText>
-          <AppText color="secondary" fontSize={18} fontWeight="800">
-            $ {data?.price} 
-          </AppText>
-        </View>
+        <FeedDetails data={data} />
         <View style={styles.avatarContainer}>
           <Avatar
             src={data.author?.src}
@@ -55,15 +49,9 @@ const styles = StyleSheet.create({
     height: 350,
     objectFit: "cover",
   },
-  imageDetails: {
-    flexDirection: "column",
-    rowGap: 2,
-    paddingHorizontal : 20,
-    paddingTop : 6
-  },
   avatarContainer: {
     marginTop: 40,
     padding: 10,
-    paddingHorizontal : 20
+    paddingHorizontal: 20,
   },
 });

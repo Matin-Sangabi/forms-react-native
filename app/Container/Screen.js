@@ -2,12 +2,18 @@ import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 
-export default function Screen({ children }) {
+export default function Screen({ children , isSafeArea = false }) {
+  if (!isSafeArea)
+    return (
+      <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
+        {children}
+      </ScrollView>
+    );
   return (
-    <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {children}
-    </ScrollView>
-  );
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
