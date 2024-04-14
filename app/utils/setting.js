@@ -45,3 +45,20 @@ export const feedData = [
     },
   },
 ];
+
+export const menuItems = [
+  {
+    title: "My Listings",
+    icon: {
+      name: "format-list-bulleted",
+      backgroundColor: colors.main,
+    },
+  },
+  {
+    title: "My Messages",
+    icon: {
+      name: "email",
+      backgroundColor: colors.secondary,
+    },
+  },
+];

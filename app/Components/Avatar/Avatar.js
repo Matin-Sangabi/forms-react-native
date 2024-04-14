@@ -27,7 +27,7 @@ export default function Avatar({ src, isContent = false, title, course }) {
               </AppText>
             </View>
           </View>
-          <FontAwesome6 name="chevron-right" size={18} color={colors.dark} />
+          <FontAwesome6 name="chevron-right" size={14} color={colors.gray} />
         </>
       )}
     </View>

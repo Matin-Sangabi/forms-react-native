@@ -4,6 +4,7 @@ import PostScreen from './app/Screen/PostScreen'
 import DetailsScreen from './app/Screen/DetailsScreen'
 import {NavigationContainer} from "@react-navigation/native"
 import FeedScreen from './app/Screen/FeedScreen';
+import Account from './app/Screen/Account';
 // import LoginScreen from './app/Screen/LoginScreen'
 
 export default function App() {
@@ -12,7 +13,8 @@ export default function App() {
     // <RegisterScreen />
     <NavigationContainer>
       {/* <DetailsScreen /> */}
-      <FeedScreen />
+      {/* <FeedScreen /> */}
+      <Account />
     </NavigationContainer>
   );
 }
