@@ -5,14 +5,15 @@ import { feedData } from "../utils/setting";
 import AppText from "../Components/AppText";
 import Avatar from "../Components/Avatar/Avatar";
 import FeedDetails from "../Components/FeedDetails";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function DetailsScreen() {
   const [data, setData] = useState(null);
-  //   const route = useRoute();
-  const id = 2;
+  const route = useRoute();
+  const navigation = useNavigation();
+  const { id } = route.params;
 
   function findData(id) {
-    console.log(id);
     const findData = feedData.find((item) => +item.id === +id);
     setData(findData);
   }
@@ -32,6 +33,9 @@ export default function DetailsScreen() {
             isContent
             title={data?.author.title}
             course={data?.author.course}
+            onPress={() => {
+              navigation.navigate("Account");
+            }}
           />
         </View>
       </View>

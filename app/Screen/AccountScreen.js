@@ -7,7 +7,7 @@ import ListSeparator from "../Components/ListSeparator";
 import { colors } from "../constants/color.enum";
 import Screen from "../Container/Screen";
 
-export default function Account() {
+export default function AccountScreen() {
   return (
     <Screen isSafeArea>
       <View style={styles.container}>

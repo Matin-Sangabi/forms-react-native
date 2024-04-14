@@ -1,11 +1,11 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { colors } from "../../constants/color.enum";
 import AppText from "../AppText";
-export default function Avatar({ src, isContent = false, title, course }) {
+export default function Avatar({ src, isContent = false, title, course , onPress }) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View>
         {src && src.length !== 0 ? (
           <Image source={src} style={styles.image} />
@@ -30,7 +30,7 @@ export default function Avatar({ src, isContent = false, title, course }) {
           <FontAwesome6 name="chevron-right" size={14} color={colors.gray} />
         </>
       )}
-    </View>
+    </TouchableOpacity>
   );
 }
 
