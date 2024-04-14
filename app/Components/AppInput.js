@@ -20,7 +20,7 @@ export default function AppInput({
       control={control}
       name={name}
       render={({
-        field: { onChange, onBlur, value },
+        field: { onChange, value },
         fieldState: { error },
       }) => (
         <View style={[styles.contiainer , {width : width}]}>
@@ -34,7 +34,6 @@ export default function AppInput({
             <TextInput
               value={value}
               onChangeText={onChange}
-              onBlur={onBlur}
               blurOnSubmit={false}
               style={styles.input}
               placeholder={placeholder}

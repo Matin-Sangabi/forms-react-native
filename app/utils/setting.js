@@ -20,3 +20,28 @@ export const data = [
   },
   { id: "8", title: "casiono", icon: "casino", color: colors.main },
 ];
+
+export const feedData = [
+  {
+    image: require("../assets/couch.jpg"),
+    title: "Couch is best practice",
+    price: 1200,
+    id: "1",
+    author: {
+      title: "Matin",
+      course: "5 content",
+      src: null,
+    },
+  },
+  {
+    image: require("../assets/jacket.jpg"),
+    title: "red Jacket ",
+    price: 120,
+    id: 2,
+    author: {
+      title: "Matin",
+      course: "5 content",
+      src: require("../assets/mosh.jpg"),
+    },
+  },
+];

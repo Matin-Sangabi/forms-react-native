@@ -3,7 +3,7 @@ export const colors = Object.freeze({
   dark: "#222222",
   main: "#f8575e",
   primary: "#fbf5f3",
-  secondary: "",
+  secondary: "#62c4ba",
   gray: "#6d6666",
   orange: "#f97316",
   yellow: "#facc15",
@@ -12,4 +12,5 @@ export const colors = Object.freeze({
   indigo: "#6366f1",
   violet: "#8b5cf6",
   pink: "#f472b6",
+  lightGray: "#cbd5e1",
 });
